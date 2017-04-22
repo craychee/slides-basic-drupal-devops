@@ -13,6 +13,21 @@
   bottom: 3em;
   left: 3em; }
 
+#header {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  padding: 24px 0 0 0;
+}
+
+.sharing {
+  float: right;
+  width: 156px;
+  right: 3em;
+  z-index: 3;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

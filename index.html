@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
 
-    <title>DevOps and the Chocolate Factory</title>
+    <title>Basic DevOps for Drupal</title>
 
     <meta name="author" content="Michelle Krejci">
-    <meta name="description" content="An introduction to testing, building infrastructure, and deploying">
+    <meta name="description" content="An introduction to the basics of devops for Drupal">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -129,69 +129,8 @@
       <div class="slides">
         <!-- Prelude -->
         <section>
-          <section data-background="images/chocolate_pics/chocolate_swirl.jpg">
-            <h1>DevOps and the Chocolate Factory</h1>
-          </section>
-          <section>
-            <h2>This is you.</h2>
-            <img class="headshot" src="images/chef.png" alt="stick figure devops-er">
-          </section>
-          <section data-background="images/chocolate_pics/chocolate_swirl.jpg">
-            <h2>Let me introduce you:</h2>
-              <ul>
-                <li class="fragment">You have been making chocolate for a while now.</li>
-                <li class="fragment">Your customers order small, manageable batches.</li>
-                <li class="fragment">You make delicious chocolate.</li>
-                <li class="fragment">Your customers agree.</li>
-                <li class="fragment">You have heard that maybe "devops" will make you better.</li>
-              </ul>
-          </section>
-          <section>
-            <h2>Someone BIG wants to try your services.</h2>
-          </section>
-          <section>
-              <h3>"We would like to buy 10000 truffles."</h3>
-              <img class="cartoon" src="images/guy.png" alt="stick figure of customer">
-          </section>
-          <section data-background="images/chocolate_pics/making-chocolate.jpg">
-            <h2>You get to work</h2>
-          </section>
-          <section data-background="images/chocolate_pics/buying-chocolate.jpg">
-            <h2>You deliver (on time!)</h2>
-          </section>
-          <section>
-            <h2 class="fragment">But the customer is unhappy.</h2>
-            <img class="cartoon" src="images/sad_guy.png" alt="stick figure of customer">
-          </section>
-          <section>
-           <h1>?!</h1>
-          </section>
-          <section data-background="images/chocolate_pics/melted-chocolate.jpg">
-            <h2>It was melted.</h2>
-          </section>
-          <section data-background="images/chocolate_pics/truffle-plain.jpg">
-            <h2>It was not what they expected.</h2>
-          </section>
-          <section data-background="images/chocolate_pics/bad-chocolate-factory.jpg">
-            <h2>The product was inconsistent.</h2>
-          </section>
-          <section>
-            <h2>What did you do wrong?</h2>
-              <ul>
-                <li class="fragment">You didn't ensure that your chocolate would survive in the environment you were delivering to.</li>
-                <li class="fragment">You didn't gather the requirements properly and made sure that you met them.</li>
-                <li class="fragment">You didn't establish a consistent development pipeline.</li>
-              </ul>
-          </section>
-          <section>
-            <h2>But your biggest mistake is more existential...</h2>
-          </section>
-          <section data-background="images/chocolate_pics/chocolate-machine.jpg">
-            <h2>You have been thinking about making chocolate, not a chocolate factory.</h2>
-          </section>
-          <section data-background="images/chocolate_pics/chocolate_swirl.jpg">
-            <h3>Welcome to</h3>
-            <h2>DevOps and the Chocolate Factory</h2>
+          <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/automation.png">
+            <h1>Basic DevOps Skills for Drupal</h1>
           </section>
         </section>
 
@@ -203,9 +142,9 @@
             <small>Warrior Princess</small>
             </br>
             <img class="headshot" src="images/BraveMichelle.jpg" alt="Photoshop Braveheart picture of Michelle Krejci">
-            <p>QA Engineering Lead @pantheon</p>
+            <p>Software Engineer @getpantheon</p>
             <p><a href="https://twitter.com/dev_meshev">@dev_meshev</a></p>
-            <p><a href="http://craychee.io/">craychee.io</a></p>
+            <p><a href="https://craychee.io/">craychee.io</a></p>
           </section>
           <section>
             <h2>Agenda</h2>
@@ -219,218 +158,72 @@
           </section>
         </section>
 
-        <!-- Mimic Production -->
+        <!-- Commands & Tools -->
         <section>
-          <section data-background="images/chocolate_pics/melted-chocolate.jpg">
-            <h6>Problem #1</h6>
-            <h2>How do you avoid melted chocolate?</h2>
+          <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/automation.png">
+            <h2>Commands & Tools</h2>
           </section>
           <section>
-            <h2>You ask lots of questions before you begin work.</h2>
+            <h2>6 commands</h2>
           </section>
           <section>
-            <p>"Where will your chocolate live?"</p>
-            <p>"Do you have control over the environment?"</p>
-            <p>"Is it up-to-date?"</p>
-            <p>"How do you intend to keep your chocolate shop up-to-date?"</p>
-            <p>"What are your concerns for keeping your chocolate safe?"</p>
-            <p>"How fast do you want to be able to render chocolate?"</p>
-            <p>"What's the most important feature of your chocolate shop?"</p>
-            <p>"How do you plan on deploying more chocolate?"</p>
-          </section>
-          <section>
-            <h2>If they don't know, figure it out for them.</h2>
-          </section>
-          <section data-background-iframe="http://lmgtfy.com/?q=pantheon.io+architecture">
-          </section>
-          <section>
-            <h2>Work in an environment tuned for its destination.</h2>
-            <p class="fragment">This means that you need a <em>configurable</em> virtual environment.</p>
-          </section>
-          <section data-background-iframe="http://phansible.com/">
-          </section>
-          <section>
-            <h2>What you get:</h2>
-              <ol>
-                <li class="fragment">An ansible directory that can configure an ubuntu system to your specifications.</li>
-                <li class="fragment">A Vagrantfile to make it so.</li>
-              </ol>
-          </section>
-          <section data-background-iframe="http://craychee.io/blog/2015/05/20/no-excuse-config-management-drupal/">
-          </section>
-          <section>
-            <h2>Alternatives:</h2>
+            <h2>Learn More</h2>
               <ol class="fragment">
-                <li><a href="https://www.chef.io/">Chef</a></li>
-                <li><a href="https://puppetlabs.com/">Puppet</a></li>
-                <li>Bash</li>
-                <li>Many, many more</li>
+                <li><a href="https://vim-adventures.com/">Vim Adventures</a></li>
+                <li><a href="https://vimium.github.io/">Vimium</a></li>
+                <li><a href="https://www.codecademy.com/learn/learn-the-command-line">Learn the Command Line</a></li>
               </ol>
-          </section>
-          <section>
-            <h2 data-transition="none">Go Deeper</h2>
-          </section>
-          <section data-transition="none" data-background-iframe="https://leanpub.com/ansible-for-devops">
-            <h2 data-transition="none">Go Deeper</h2>
-          </section>
-          <section data-transition="none" data-background-iframe="http://www.docker.com/">
-            <h2>Keep an eye on:</h2>
           </section>
         </section>
 
-        <!-- Establish a Development Pipeline -->
+        <!-- Scripting -->
         <section>
-          <section data-background="images/chocolate_pics/bad-chocolate-factory.jpg">
-            <h6>Problem #2</h6>
-            <h2>How do you make consistent chocolate?</h2>
-          </section>
-          <section>
-            <h2>You determine your workflow.</h2>
-            <h2 class="fragment">Then you make it executable.</h2>
-          </section>
-          <section>
-            <p>"What ingredients do I need?"</p>
-            <p>"What ingredients must I keep our of my receipe?"</p>
-            <p>"What order to features need to be reverted?"</p>
-            <p>"When do I need to clear caches?"</p>
-            <p>"What variables need to be configured for development?"</p>
-            <p>"What variables need to be configured for production?"</p>
-            <p>"How am I going to manage it?"</p>
-          </section>
-          <section>
-            <p>Establish practices:</p>
-            <h2>If your work doesn't build itself, it's not done.</h2>
-          </section>
-          <section data-background-iframe="http://craychee.io/blog/2015/07/29/no-excuses-part2-drupal-config/">
-          </section>
-          <section data-background-iframe="https://enterpriseshellscripts.com/">
-            <h2>A warning</h2>
-          </section>
-          <section>
-            <h2>Alternatives:</h2>
-              <ol class="fragment">
-                <li><a href="http://gruntjs.com/">Grunt</a></li>
-                <li><a href="http://gulpjs.com/">Gulp</a></li>
-                <li><a href="http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/">Makefile</a></li>
-                <li>Many, many more task runners</li>
-              </ol>
-          </section>
-          <section data-transition="none" data-background-iframe="http://robo.li/">
-            <h2>Keep an eye on:</h2>
+          <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/typewriter.jpg">
+            <h2>Scripting</h2>
           </section>
         </section>
 
-        <!-- Gather and check against requirements -->
+        <!-- Continuous Integration -->
         <section>
-          <section data-background="images/chocolate_pics/truffle-plain.jpg">
-            <h6>Problem #3</h6>
-            <h2>How do you ensure that you make what they wanted?</h2>
-          </section>
-          <section data-background="images/chocolate_pics/truffle-nuts.jpg">
-            <h2>You learn what stories they are telling.</h2>
-          </section>
-          <section>
-            <p>"Who wants what and why?"</p>
-            <p>"What are your edge cases?"</p>
-            <p>"What actions do you anticipate your users are going to do with the chocolate?"</p>
-            <p>"What is the context that you anticipate your user taking actions?"</p>
-            <p>"What is achievable to complete in small steps?"</p>
-          </section>
-          <section data-background-iframe="http://dannorth.net/whats-in-a-story/">
-          </section>
-          <section>
-            <h2>Conversations are more important than the tools and processes that execute their outcomes.</h2>
-          </section>
-          <section data-background-iframe="https://behat-drupal-extension.readthedocs.org/en/3.1/">
-          </section>
-          <section data-background-iframe="http://craychee.io/blog/2015/08/04/no-excuses-part4-testing/">
-          </section>
-          <section>
-            <h2>Distinguish between testing and checking.</h2>
-            <p class="fragment">Testing is always exploratory.</p>
-          </section>
-          <section>
-            <h2>Supplements:</h2>
-              <ol class="fragment">
-                <li><a href="https://pantheon.io/docs/guides/visual-diff-with-wraith/">Wraith</a></li>
-                <li><a href="https://addyosmani.com/a11y/">a11y</a>
-                <li><a href="https://www.sitespeed.io/">sitespeed.io</a>
-              </ol>
-          </section>
-          <section>
-            <h2 data-transition="none">Go Deeper</h2>
-          </section>
-          <section data-transition="none" data-background-iframe="https://media.pragprog.com/titles/hwcuc/intro.pdf">
-            <h2 data-transition="none">Go Deeper</h2>
+          <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/robots-replace-humans.png">
+            <h2>Scripting</h2>
           </section>
         </section>
 
-        <!-- Establish a deployment pipeline -->
+        <!-- Web Servers -->
         <section>
-          <section data-background="images/chocolate_pics/chocolate-machine.jpg">
-            <h6>Problem #4</h6>
-            <h2>How do you consistently deploy?</h2>
-          </section>
-          <section>
-            <h2>You build a reliable deployment pipeline.</h2>
-            <h2 class="fragment">You are going to need a ship.</h2>
-          </section>
-          <section data-transition="none" data-background-iframe="https://circleci.com/">
-          </section>
-          <section data-transition="none" data-background-iframe="http://craychee.io/blog/2015/08/08/no-excuses-part5-deployment/">
-          </section>
-          <section>
-            <p>Every environment is different, but your process doesn't need to be.</p>
-            <h2>Form opinions and then standardize on them.</h2>
-          </section>
-          <section>
-            <h2>Alternatives:</h2>
-              <ol class="fragment">
-                <li><a href="https://travis-ci.org/">Travis</a></li>
-                <li><a href="https://jenkins-ci.org/">Jenkins</a></li>
-              </ol>
-          </section>
-          <section data-transition="none" data-background-iframe="http://martinfowler.com/books/continuousDelivery.html">
-            <h2 data-transition="none">Go Deeper</h2>
+            <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/web-server-bouncer.png">
+            <h2>Web Servers</h2>
           </section>
         </section>
 
-        <!-- Closing thoughts -->
+        <!-- Containers -->
         <section>
-          <section data-background="images/chocolate_pics/proud-of-chocolate.jpg">
-            <h2>Closing thoughts</h2>
+            <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/countainers.png">
+            <h2>Containers</h2>
           </section>
-          <section>
-            <h2>Learn from my mistakes.</h2>
-              <ol>
-                <li class="fragment">Value conversations over rituals.</li>
-                <li class="fragment">Think about solutions not tools.</li>
-                <li class="fragment">The value of any practice depends on its context.</li>
-                <li class="fragment">There are no best practices.</li>
-              </ol>
-          </section>
-          <section data-background="images/drill.jpg">
-            <h2>"No one wants a quarter inch drill,</h2>
-            <h2 class="fragment">they want a quarter inch hole."</h2>
-          </section>
-          <section>
-            <p>I am saying:</p>
-            <h2>They really do want the drill.</h2>
-            <h2 class="fragment">They want to make the same thing over and over, <em>fast</em>.</h2>
-          </section>
-          <section data-background="images/chocolate_pics/truffle-nuts.jpg">
-            <h2>So don't keep making holes.</h2>
-          </section>
-          <section data-background="images/chocolate_pics/chocolate-machine.jpg">
-            <h2>Make chocolate factories.</h2>
-          </section>
-      </section>
+        </section>
 
-    </div>
+        <!-- Automation -->
+        <section>
+            <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/automation.png">
+            <h2>Automation</h2>
+          </section>
+        </section>
+
+        <!-- Cloud -->
+        <section>
+            <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/clouds.jpg">
+            <h2>Cloud</h2>
+          </section>
+        </section>
+
+      </div>
     </div>
 
       <footer class="pantheon-logo">
         <a href="https://www.pantheon.io"><img src="images/pantheon_logo.png" alt="Pantheon.io logo" height="38" /></a>
+        <a class="reveal" href="https://twitter.com/dev_meshev">@dev_meshev</a>
       </footer>
 
 

@@ -1,0 +1,11 @@
+ichine:
+  python:
+    version: 2.7.13
+
+dependencies:
+  override:
+    - pip install html-linter
+
+test:
+  override:
+    - html_lint.py index.html || echo "Learn html, Michelle" && exit 0

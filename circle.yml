@@ -9,3 +9,9 @@ dependencies:
 test:
   override:
     - html_lint.py index.html || echo "Learn html, Michelle" && exit 0
+
+deployment:
+   staging:
+     branch: master
+     heroku:
+       appname: basic-devops-for-drupal

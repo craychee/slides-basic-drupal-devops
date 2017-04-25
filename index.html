@@ -579,6 +579,7 @@ location ~ '\.php$|^/update.php' {
 
         </section>
 
+        <!-- Lighting Round -->
         <!-- Automation -->
         <section>
           <section data-transition="none" data-background="#ffffff">
@@ -597,8 +598,14 @@ location ~ '\.php$|^/update.php' {
                   <li>nginx config</li>
                   <li>mysql db setup</li>
                   <li>php.ini setup</li>
-                  <li>solr, reddis, email,</li>
+                  <li>solr, reddis, email</li>
               <ul>
+          </section>
+          <section>
+            <h2>Automation to configure once, not update.</h2>
+            <p class="fragment">NOT apply B changes to A.</p>
+            <p class="fragment">Rather replace A with B.</p>
+            <p class="fragment">Artifact deployments!</p>
           </section>
           <section>
             <h2>Learn More</h2>
@@ -607,10 +614,8 @@ location ~ '\.php$|^/update.php' {
                 <li><a href="http://docs.drupalvm.com/en/latest/">Better: DrupalVM</a></li>
               </ol>
           </section>
-      </section>
 
         <!-- Containers -->
-        <section>
           <section data-transition="none" data-background="#ffffff">
             <img src="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/07+-+Basics+Drupal+DevOps+path.png">
           </section>
@@ -620,6 +625,15 @@ location ~ '\.php$|^/update.php' {
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/countainers.png">
             <h2>Containers</h2>
             <h3 class="fragment">because you can't take your laptop with you in the cloud.</h3>
+          </section>
+          <section>
+              <h3>Know why VMs are out, containers are in.</h3>
+              <ol class="fragment">
+                <li>Cheaper</li>
+                <li>Less surface area</li>
+                <li>Isolate components</li>
+                <li>Faster deployments</li>
+              </ol>
             <p class="fragment"><a href="https://prakhar.me/docker-curriculum/">Try this tutorial.</a></p>
           </section>
 
@@ -634,6 +648,43 @@ location ~ '\.php$|^/update.php' {
             <h2>Cloud</h2>
             <h3>because you've got too much to think about already</h3>
             <p class="fragmentation">This presentation lives in "the cloud."</p>
+          </section>
+
+        <!-- Monitoring -->
+          <section data-transition="none" data-background="#ffffff">
+            <img src="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/09+-+Basics+Drupal+DevOps+path.png">
+          </section>
+          <section data-transition="none" data-background="#ffffff">
+            <img src="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/10+-+Basics+Drupal+DevOps+path.png">
+          </section>
+          <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/binoculars.png">
+            <h2>Monitoring</h2>
+            <h3>Manage your risk.</h3>
+          </section>
+          <section>
+            <h3>Describe your risk tolerance.</h3>
+              <ol class="fragment">
+                <li>How will you know your site is alive? What is your playbook if it's not?</li>
+                <li>Identify key components, measure their success.</li>
+                <li>Read the first 4 chapters of <a href="https://landing.google.com/sre/book/index.html">SRE</a>
+              </ol>
+          </section>
+
+        </section>
+
+        <!-- Closing -->
+        <section>
+          <section data-transition="none" data-background="#ffffff">
+            <img src="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/10+-+Basics+Drupal+DevOps+path.png">
+          </section>
+          <section data-transition="none" data-background="#ffffff">
+            <img src="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/11+-+Basics+Drupal+DevOps+path.png">
+          </section>
+          <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/Closing+-+Basics+Drupal+DevOps+path.png">
+            <h2>exit 0</h2>
+            <p class="fragment"><a href="https://events.drupal.org/baltimore2017/sessions/basic-devops-skills-where-start-and-how-learn">Tell me how I did.</a></p>
+            <p class="fragment"><a href="https://www.surveymonkey.com/r/drupalconbaltimore">Take the DrupalCon survey.</a></p>
+            <p class="fragment"><a href="https://twitter.com/dev_meshev">Questions & Comments @dev_meshev</a></p>
           </section>
         </section>
 

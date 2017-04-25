@@ -72,11 +72,6 @@
         margin-top: 2em;
       }
 
-      img.cartoon {
-        width: 40%;
-        height: 40%;
-      }
-
       .left-corner {
         display: block;
       }
@@ -91,7 +86,8 @@
       }
 
       .reveal pre {
-        font-size: 1.2em;
+        font-size: 1em;
+        box-shadow: none;
       }
 
       table.decision-chart {
@@ -153,8 +149,8 @@
           </section>
           <section>
               <h2>The first rule of DevOps:</h2>
-              <h2 class="fragment">there is no such thing devops</h2>
-              <a class="fragment" href="https://www.youtube.com/watch?v=_DEToXsgrPc">See DevOps Kungfu</a>
+              <h2 class="fragment">there is no such thing devops.</h2>
+              <a class="fragment" href="https://www.youtube.com/watch?v=_DEToXsgrPc">See for example DevOps Kungfu</a>
           </section>
           <section>
               <h2>The second rule of DevOps:</h2>
@@ -225,11 +221,27 @@
           </section>
         </section>
 
-        <!-- If only I had some basic devops -->
+        <!-- prerequisite -->
         <section>
           <section data-transition="none" data-background="#ffffff">
-            <h2>If only I had begun with basic devops skills</h2>
+            <h2 style="color: #313945">If only I had begun with basic devops skills</h2>
             <img src="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/01+-+Basics+Drupal+DevOps+path.png">
+          </section>
+          <section>
+            <h2>Prerequisites</h2>
+              <ol>
+                <li class="fragment"><a href="https://www.codecademy.com/learn/learn-the-command-line">The basics of the Command Line.</a></li>
+                <li class="fragment"><a href="https://www.codeschool.com/courses/try-git">The basics of git.</a></li>
+                <li class="fragment"><a href="https://help.github.com/articles/connecting-to-github-with-ssh/">An ssh key + a github account.</a></li>
+                <li class="fragment">Access to a Linux/Unix environment.</li>
+                <li class="fragment">A willingness to ask questions.</li>
+              </ol>
+          </section>
+          <section>
+            <h3 class="highlight">my first day...</h3>
+            <p class="fragment">me: "hey, how do I get the database?"</p>
+            <pre class="fragment">$ ssh username@189.292.192.10</pre>
+            <p class="fragment">me: "... what does $ mean?"</p>
           </section>
         </section>
 
@@ -244,7 +256,7 @@
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/robots-replace-humans.png">
             <h2>Goal of learning Commands & Tools</h2>
             <ol>
-              <li class="fragment">Gain the insight that the web is mostly pertains to the organization and manipulation of text.</li>
+              <li class="fragment">Gain the insight that much of the web is just the organization and manipulation of text.</li>
               <li class="fragment">Understand that we can observe systems outside our own computers.</li>
             </ol>
           </section>
@@ -268,11 +280,14 @@
           </section>
           <section>
             <h2>Learn More</h2>
-              <ol class="fragment">
+              <div class="fragment">
+              <ol>
                 <li><a href="https://vim-adventures.com/">Vim Adventures</a></li>
                 <li><a href="https://vimium.github.io/">Vimium</a></li>
-                <li><a href="https://www.codecademy.com/learn/learn-the-command-line">Learn the Command Line</a></li>
+                <li>Look up everything you don't know next time you see something like:</li>
               </ol>
+              <pre style="font-size: .3em">curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install</pre>
+              </div>
           </section>
         </section>
 
@@ -286,6 +301,58 @@
           </section>
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/typewriter.png">
             <h2>Goal of learning Scripting</h2>
+            <h2>Automate the predictable stuff.</h2>
+          </section>
+          <section>
+              <h2 class="highlight">Start with your daily life and work up to Drupal.</h2>
+          </section>
+
+          <section>
+<pre>
+alias sunshine="afplay
+   $HOME/sounds/goodmorning.mp3"
+alias morningsunshine="sunshine"
+</pre>
+          </section>
+
+          <section>
+<pre>
+alias meshev.write="cd $DRAFTS &&
+  mkdir -p $TODAY && cd $TODAY &&
+  touch $PAGES &&
+  pomo init &&
+  vim private.md"
+</pre>
+          </section>
+
+          <section>
+<pre>
+# daily routine
+alias good.morning="tmux split-window -h &&
+    morningsunshine &&
+    say 'Another day, Michelle.
+    It is the start of `DATE`.
+    Good luck with your writing.' &&
+    meshev.write"
+</pre>
+          </section>
+          <section>
+<pre>
+alias loki.drupal=makeDrupalModule
+# Drupal module in one command.
+makeDrupalModule() {
+  mkdir $1
+  cd $1
+  echo -e "name = $1" > $1.info
+  echo -e "core = 7.x" >> $1.info
+  echo -e "files[] =" >> $1.info
+  echo -e "php?>" >> $1.module
+  echo -e "/**" >> $1.module
+  echo -e " * @file" >> $1.module
+  echo -e " */" >> $1.module
+  echo -e "}" >> $1.module
+}
+</pre>
           </section>
         </section>
 
@@ -299,6 +366,15 @@
           </section>
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/automation.png">
             <h2>Continuous Integration</h2>
+            <h2 class="fragment">Drupal is not the greated CI teacher.</h2>
+          </section>
+          <section>
+            <h2>But my presentation is!</h2>
+            <div class="fragment">
+            <h2>literally.</h2>
+                    <p><a href="https://github.com/craychee/slides-basic-drupal-devops">my repository</a></p>
+                    <p><a href="https://circleci.com/gh/craychee/slides-basic-drupal-devops">my CI</a></p>
+            </div>
           </section>
         </section>
 
@@ -312,11 +388,11 @@
           </section>
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/web-server-bouncer.png">
             <h2>Web Servers</h2>
-            <h4>Servers? More like web bouncers</h4>
+            <h4>Servers? More like web bouncers.</h4>
           </section>
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/nginx-config.png">
             <h2>NGINX config explained</h2>
-            <h2>using only the 10,000 most common words<h2>
+            <h2>using only the 1,000 most common words.</h2>
                     <p><a href="http://www.shabanali.com/upload/1000words.pdf">source</a></p>
                     <p><a href="https://xkcd.com/1133/">inspiration</a></p>
           </section>
@@ -420,7 +496,7 @@ location ~* ^/.well-known/ {
                   </pre>
                 </td>
                 <td>
-                  <h3 class="fragment">If people want to see this stuff</h3>
+                  <h3 class="fragment">If people want to see these things</h3>
                   <h3 class="fragment">tell them, "right this way".</h3>
                 </td>
               </tr>
@@ -513,8 +589,25 @@ location ~ '\.php$|^/update.php' {
           </section>
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/automation.png">
             <h2>Automation</h2>
+            <h3 class="fragment">because Drupal isn't the only part of the system that needs to be configured.</h3>
           </section>
-        </section>
+          <section>
+              <ul>
+                  <li>php packages</li>
+                  <li>nginx config</li>
+                  <li>mysql db setup</li>
+                  <li>php.ini setup</li>
+                  <li>solr, reddis, email,</li>
+              <ul>
+          </section>
+          <section>
+            <h2>Learn More</h2>
+              <ol class="fragment">
+                <li><a href="https://github.com/craychee/drupal-fleet-yard">My learning out loud.</a></li>
+                <li><a href="http://docs.drupalvm.com/en/latest/">Better: DrupalVM</a></li>
+              </ol>
+          </section>
+      </section>
 
         <!-- Containers -->
         <section>
@@ -526,12 +619,11 @@ location ~ '\.php$|^/update.php' {
           </section>
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/countainers.png">
             <h2>Containers</h2>
-            <h4 class="fragment">because you can't take your laptop with you in the cloud.</h4>
+            <h3 class="fragment">because you can't take your laptop with you in the cloud.</h3>
+            <p class="fragment"><a href="https://prakhar.me/docker-curriculum/">Try this tutorial.</a></p>
           </section>
-        </section>
 
         <!-- Cloud -->
-        <section>
           <section data-transition="none" data-background="#ffffff">
             <img src="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/Basic+DevOps/08+-+Basics+Drupal+DevOps+path.png">
           </section>
@@ -540,6 +632,8 @@ location ~ '\.php$|^/update.php' {
           </section>
           <section data-background="https://s3-us-west-1.amazonaws.com/craychee-img/basic-devops-imgs/clouds.jpg">
             <h2>Cloud</h2>
+            <h3>because you've got too much to think about already</h3>
+            <p class="fragmentation">This presentation lives in "the cloud."</p>
           </section>
         </section>
 
